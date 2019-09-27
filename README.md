@@ -1,6 +1,6 @@
 # EETBS-Python-Assignments-Polimi-2019-2020
 
-So first fork this Repo, then go to your forked respository and clone it into your computer using:
+First, fork this Repo, then go to your forked respository and clone it into your computer using:
 git clone that Address
 
 Then before adding your files inside this folder, run this:
