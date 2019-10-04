@@ -1,58 +1,43 @@
 # -*- coding: utf-8 -*-
-
-#Assignment 1
-#Heat loss through a double pane window
-
-#We define the variables related to the area of the window
 H = 0.8 #m
 W = 1.5 #m
-A = H*W
-print("The area of the window is " +str(A) + " m^2")
+A = H*W #m^2
 
-#We define the outside and inside temperatures
 Tin = 20 #deg C
 Tout = -10 #deg C
 
-layer1 = "glass 4 mm"
-if layer1 == "glass 4 mm":
-    k=0.78 #W/mC
-    L=0.004 #m
-    R1=L/(k*A) #°C/W
-    print("The resistance value of the glass is " + str(R1) + " °C/W")
-else:
-    print("I don't have these material properties")
-    
-layer2 = "stagnant air 10 mm"
-if layer2 == "stagnant air 10 mm":
-    k=0.026 #W/mC
-    L=0.01 #m
-    R2=L/(k*A) #°C/W
-    print("The resistance value of the gap is " + str(R2) + " °C/W")
-else:
-    print ("I don't have these material properties")
-    
-#We define the heat transfer coefficients of the inner and outer surfaces of the window
+k_glass=0.78 #W/mC
+L_glass=0.004 #m
+k_gap=0.026 #W/mC
+L_gap=0.01 #m
 hin = 10 #W/m^2
 hout = 40 #W/m^2
-Rin = float(1)/(hin*A)
-Rout = float(1)/(hout*A)
-print("The resistance value of the inner surface is " + str(Rin) + "°C/W")
-print("The resistance value of the outer surface is " + str(Rout) + "°C/W")
 
-Rtot = 2*R1+R2+Rin+Rout
-print("The total resistance value is " + str(Rtot) + " °C/W")
+print("The value of the area is " + str(A) + " m^2")
 
-#We compute the steady rate of the heat transfer and the temperature of the inner surface
-Q = (Tin-Tout)/Rtot
+R1 = ["R_in", "Conv", 10, 1.2]
+R2 = ["R_glass1", "Cond", 0.004, 0.78, 1.2]
+R3 = ["R_air", "Cond", 0.01, 0.026, 1.2]
+R4 = ["R_glass2", "Cond", 0.004, 0.78, 1.2]
+R5 = ["R_out", "Conv", 40, 1.2]
+
+ResistancesList = [R1, R2, R3, R4, R5]
+print(ResistancesList)
+
+R_total = 0
+for anyResistance in ResistancesList:
+    if anyResistance[1] == "Conv":
+        Rval = 1/float((anyResistance[2]*anyResistance[3]))
+        anyResistance.append(Rval)
+        print(anyResistance)
+    elif anyResistance[1] == "Cond":
+        Rval = float(anyResistance[2]/(anyResistance[3]*anyResistance[4]))
+        anyResistance.append(Rval)
+        print(anyResistance)
+    R_total = R_total + Rval
+print("The total value of the resistance is " + str(R_total) + " °C/W") 
+
+Q = (Tin-Tout)/R_total
 print("Q = " + str(Q) + " W")
-Ts1 = Tin-(Q*Rin)
+Ts1 = Tin-(Q*R1[4])
 print("Ts1= " + str(Ts1) + " °C")
-
-
-
-
-    
-
-      
-    
-    
