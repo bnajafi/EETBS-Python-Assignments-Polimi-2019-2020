@@ -14,7 +14,7 @@ libraryOfMaterials= {"outside_AirWinter": outside_AirWinterDictionary,"wood_beve
                      "fiberGlass":fiberGlassDictionary, "wood_fiberboard": wood_fiberboardDictionary,"woodStud": woodStudDictionary, 
                      "gypsum" : gypsumDictionary, "inside_Air":inside_AirDictionary}
 
-R1= ["R_outside_AirWinter","conv",libraryOfMaterials["outside_AirWinter"]["RValUnit"]] 
+R1= ["R_outside_Air","conv",libraryOfMaterials["outside_AirWinter"]["RValUnit"]] 
 R2= ["R_wood_bevel_lapped_siding","cond",libraryOfMaterials["wood_bevel_lapped_siding"]["RValUnit"]]
 R3= ["R_wood_fiberboard","cond",libraryOfMaterials["wood_fiberboard"]["RValUnit"]]
 R4= ["R_fiberGlass","cond", libraryOfMaterials["fiberGlass"]["RValUnit"]]
