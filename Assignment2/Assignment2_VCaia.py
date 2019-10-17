@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#Assignment 2
+#Assignment 2: Valentina Caia
 
 dict1 = {"R_wood": 0.03, "R_insulation": 0.03}
 dict2 = {"R_wood": 0.14, "R_insulation": 0.14, "thickness": 13}
@@ -26,14 +26,14 @@ for anyR in ResistancesList:
     if anyR["type"] == "Conv.":
         materialOFanyR = LibraryOfMaterials[anyR["material"]]
         Rval = materialOFanyR["R_wood"]
-        print(Rval)
+        print("R = " + str(Rval))
     elif anyR["type"] == "Cond.":
         thicknessOFanyR = anyR["thick"]
         materialOFanyR = LibraryOfMaterials[anyR["material"]]
         standardThickOFanyRinTheLibrary = materialOFanyR["thickness"]
         standardResOFanyRinTheLibrary = materialOFanyR["R_wood"]
         Rval = standardResOFanyRinTheLibrary*thicknessOFanyR/standardThickOFanyRinTheLibrary
-        print(Rval)
+        print("R = " + str(Rval))
     R1_tot=R1_tot+Rval
 print("The overall unit thermal resistance with wood is " + str(R1_tot) + " °C m^2/W")
 
@@ -42,16 +42,16 @@ for anyR in ResistancesList:
     if anyR["type"] == "Conv.":
         materialOFanyR = LibraryOfMaterials[anyR["material"]]
         Rval = materialOFanyR["R_insulation"]
-        print(Rval)
+        print("R = " + str(Rval))
     elif anyR["type"] == "Cond.":
         thicknessOFanyR = anyR["thick"]
         materialOFanyR = LibraryOfMaterials[anyR["material"]]
         standardThickOFanyRinTheLibrary = materialOFanyR["thickness"]
         standardResOFanyRinTheLibrary = materialOFanyR["R_insulation"]
         Rval = standardResOFanyRinTheLibrary*thicknessOFanyR/standardThickOFanyRinTheLibrary
-        print(Rval)
+        print("R = " + str(Rval))
     R2_tot=R2_tot+Rval
-print("The overall unit thermal resistance with wood is " + str(R2_tot) + " °C m^2/W")
+print("The overall unit thermal resistance with insulation is " + str(R2_tot) + " °C m^2/W")
 
 deltaT = 24 #°C
 P = 50 #m
