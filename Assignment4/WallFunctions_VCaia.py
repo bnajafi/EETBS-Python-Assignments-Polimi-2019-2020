@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
-#Assignment3: Valentina Caia
+#Wall Functions: Valentina Caia
+
 R1 = {"name": "R_out", "type": "Conv.", "material": "OutsideAir"}
 R2 = {"name": "R_woodBL", "type": "Cond.", "material": "WoodBevelLapped", "thick": 13}
 R3 = {"name": "R_fiber", "type": "Cond.", "material": "Fiberboard", "thick": 13}
@@ -44,7 +44,6 @@ def WoodResistancesWithLibrary(ListOfWoodResistances):
     return Rvalue
     
 Rwood_val=WoodResistancesWithLibrary(ResistancesList)
-print(Rwood_val)
 Rwood_tot = Rwood_val[-1]
 print(Rwood_tot)
         
@@ -81,29 +80,3 @@ def InsResistancesWithLibrary(ListOfInsResistances):
     
     return Rvalue
     
-Rins_val=InsResistancesWithLibrary(ResistancesList)
-print(Rins_val)
-Rins_tot = Rins_val[-1]
-print(Rins_tot)
-
-
-print("The unit thermal resistances with wood are " + str(Rwood_val) + " °C m^2/W")
-print("The unit thermal resistances with the presence of insulation are " + str(Rins_val) + " °C m^2/W")
-
-
-#data
-deltaT = 24 #°C
-P = 50 #m
-H = 2.5 #m
-
-#20% of the wall area is occupied by glazing
-A = P*H*0.8
-print("The area is " + str(A) + " m^2")
-
-U_wood = 1/float(Rwood_tot)
-U_ins = 1/float(Rins_tot)
-U_tot= (U_wood*0.25)+(U_ins*0.75)
-print("The toal heat transfer coefficient is " + str(U_tot) + " W/°C m^2")
-
-Q = U_tot*A*deltaT
-print("The heat loss through the walls of the house is "+ str(Q) + " W")
