@@ -42,8 +42,7 @@ for Ri in OnlyWood:
         print(material_of_Ri)
         print(R_value_of_Ri)
         Ri["R_value"] = R_value_of_Ri
-        print(Ri)
-        R_onlywood = R_onlywood + R_value_of_Ri    
+        print(Ri)  
         
     elif Ri["type"] == "cond":
         thickness_of_Ri = Ri["thickness"]
@@ -56,11 +55,13 @@ for Ri in OnlyWood:
         print(std_thickness_of_this_material)
         R_value_of_this_material = sub_dictionary["R_value"]
         print(R_value_of_this_material)
-        R_val_of_Ri = float(R_value_of_this_material) * (thickness_of_Ri / std_thickness_of_this_material)
-        print(R_val_of_Ri)
-        Ri["R_value"] = R_val_of_Ri
+        R_value_of_Ri = float(R_value_of_this_material) * (thickness_of_Ri / std_thickness_of_this_material)
+        print(R_value_of_Ri)
+        Ri["R_value"] = R_value_of_Ri
         print(Ri)
-        R_onlywood = R_onlywood + R_value_of_Ri
+    
+    R_onlywood = R_onlywood + R_value_of_Ri
+    print("R_onlywood: "+str(R_onlywood))
 
     
 # Step 2: wall made up of only glass fiber insulator
@@ -73,7 +74,7 @@ for Ri in OnlyInsulator:
         print(R_value_of_Ri)
         Ri["R_value"] = R_value_of_Ri
         print(Ri)
-        R_onlyinsulator = R_onlyinsulator + R_value_of_Ri
+        
     elif Ri["type"] == "cond":
         thickness_of_Ri = Ri["thickness"]
         material_of_Ri = Ri["material"]
@@ -85,11 +86,12 @@ for Ri in OnlyInsulator:
         print(std_thickness_of_this_material)
         R_value_of_this_material = sub_dictionary["R_value"]
         print(R_value_of_this_material)
-        R_val_of_Ri = float(R_value_of_this_material) * (thickness_of_Ri / std_thickness_of_this_material)
-        print(R_val_of_Ri)
-        Ri["R_value"] = R_val_of_Ri
+        R_value_of_Ri = float(R_value_of_this_material) * (thickness_of_Ri / std_thickness_of_this_material)
+        print(R_value_of_Ri)
+        Ri["R_value"] = R_value_of_Ri
         print(Ri)
-        R_onlyinsulator = R_onlyinsulator + R_value_of_Ri
+    R_onlyinsulator = R_onlyinsulator + R_value_of_Ri
+    print("R_onlyinsulator: "+str(R_onlyinsulator))
 
 # Overall heat transfer coefficient
 
