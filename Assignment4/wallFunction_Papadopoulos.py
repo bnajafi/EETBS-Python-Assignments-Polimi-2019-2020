@@ -58,8 +58,8 @@ DeltaT=(T2-T1)
 Qtot=Utot*Atot*DeltaT
 Qtotal=(abs(Qtot))
 print ("the total heat tranfser, in W, is: " +str(Qtotal))
-print ("the Rprime total, in W, is : " +str(R_prime_tot))
-print ("the U total, in W, is : " +str(Utot))
+print ("the Rprime total, in (degC/W)*m^2, is : " +str(R_prime_tot))
+print ("the U total, in W/(degC*m^2), is : " +str(Utot))
 
 
 

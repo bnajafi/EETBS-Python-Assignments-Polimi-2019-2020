@@ -13,6 +13,6 @@ results=wallFunction_Papadopoulos.Rcalculator(listofmaterials)
 print results
 #since the whole file has been imported the script remains the same as the assignment 3!                                                           
 print ("the total heat tranfser, in W, is: " +str(wallFunction_Papadopoulos.Qtotal))
-print ("the Rprime total, in W, is : " +str(wallFunction_Papadopoulos.R_prime_tot))
-print ("the U total, in W, is : " +str(wallFunction_Papadopoulos.Utot)) #prints the already calculated results of the file "wallFuction_Papadopoulos"
+print ("the Rprime total, in (degC/W)*m^2, is : " +str(wallFunction_Papadopoulos.R_prime_tot))
+print ("the U total, in W/(degC*m^2), is : " +str(wallFunction_Papadopoulos.Utot)) #prints the already calculated results of the file "wallFuction_Papadopoulos"
 
