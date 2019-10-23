@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import os
-filelist=os.listdir(r"C:\Users\Angela\Desktop\Building Systems EEE") #here insert directory
+filelist=os.listdir(r"C:\Users\Angela\Desktop\Building Systems EEE\ASSIGNMENTS") #here insert directory
 print('calledwallFunction_Anunziata.py' in filelist)
 
-import calledwallFunction_Anunziata
+import calledwallFunction_Anunziata       
+"""I could use also --> from calledwallFunction_Anunziata import RCFL <-- 
+and later (see line 33,34)* I won't need to repeat calledwallFunction_Anunziata.RCFL but only RCFL"""
 
 Routside= {"name":"Routside","type":"conv",
 "material":"outside"}   
@@ -25,9 +27,12 @@ RWood_studs, R13mm_Gypsum, Rinside]
 ResistanceListB = [Routside, RWood_bevel_lapped, R13mm_fiberboard, 
 RGlass_Fiber_insulation, R13mm_Gypsum, Rinside]  
 
-solA= calledwallFunction_Anunziata.RCFL(ResistanceListA)
-solB= calledwallFunction_Anunziata.RCFL(ResistanceListB)
+solA= calledwallFunction_Anunziata.RCFL(ResistanceListA)          
+solB= calledwallFunction_Anunziata.RCFL(ResistanceListB)                           
 
+"""*here I would have-->solA=RCFL(ResistanceListA)
+                     -->solB=RCFL(ResistanceListB)"""
+                                                                      
 print ("Individual resistances for wood are "+str(solB[0:-1])+ " °C/W * m^2")        
 print ("Individual resistances for insulation are "+str(solA[0:-1])+ " °C/W * m^2")        
 print ("Rtot for wood is "+str(solA[-1])+ " °C/W * m^2")
