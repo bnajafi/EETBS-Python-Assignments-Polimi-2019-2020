@@ -72,12 +72,17 @@ def MyFunction(x):
         
         R_tot = R_tot + res["R_value"]
     
-    return R_tot
+    return R_tot, R_list
 
-R_tot_woodstud = MyFunction(R_woodstud)
+R_tot_woodstud, List_case1 = MyFunction(R_woodstud)
 print(R_tot_woodstud)
-R_tot_fiberglass = MyFunction(R_fiberglass)
+print(List_case1)
+
+R_tot_fiberglass, List_case2 = MyFunction(R_fiberglass)
 print(R_tot_fiberglass)
+print(List_case2)
+
+
 
 # problem solving
 
