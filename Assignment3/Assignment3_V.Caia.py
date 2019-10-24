@@ -45,6 +45,8 @@ def WoodResistancesWithLibrary(ListOfWoodResistances):
     
 Rwood_val=WoodResistancesWithLibrary(ResistancesList)
 print(Rwood_val)
+Rwood_tot = Rwood_val[-1]
+print(Rwood_tot)
         
 #R_insulation
 def InsResistancesWithLibrary(ListOfInsResistances):
@@ -81,10 +83,12 @@ def InsResistancesWithLibrary(ListOfInsResistances):
     
 Rins_val=InsResistancesWithLibrary(ResistancesList)
 print(Rins_val)
+Rins_tot = Rins_val[-1]
+print(Rins_tot)
 
 
 print("The unit thermal resistances with wood are " + str(Rwood_val) + " °C m^2/W")
-print("The unit thermal resistances with insulation are " + str(Rins_val) + " °C m^2/W")
+print("The unit thermal resistances with the presence of insulation are " + str(Rins_val) + " °C m^2/W")
 
 
 #data
@@ -96,8 +100,8 @@ H = 2.5 #m
 A = P*H*0.8
 print("The area is " + str(A) + " m^2")
 
-U_wood = 1/float(R1_tot)
-U_ins = 1/float(R2_tot)
+U_wood = 1/float(Rwood_tot)
+U_ins = 1/float(Rins_tot)
 U_tot= (U_wood*0.25)+(U_ins*0.75)
 print("The toal heat transfer coefficient is " + str(U_tot) + " W/°C m^2")
 
