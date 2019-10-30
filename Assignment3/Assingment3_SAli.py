@@ -58,12 +58,12 @@ def ResitanceCalculatorWithLibrary(Rlist):
 ################################################################################
 Rlist = [R1,R2,R3,R4,R5,R6,R7] ###### my list of resistance(can see on the top)
 myeffectiveresults = ResitanceCalculatorWithLibrary(Rlist)######################
-print(myeffectiveresults)#######################################################
+print("[Rwithwoodtotal,Rwithinsulatortotal] = " + str(myeffectiveresults))#######################################################
 #################################################################################
 
 
-u_wood = 1/R_total[0] ### heat transfer coeeficient with wood stud
-U_ins = 1/R_total[1]  ## heat transfer coeeficient with insulator
+u_wood = 1/myeffectiveresults[0] ### heat transfer coeeficient with wood stud
+U_ins = 1/myeffectiveresults[1]  ## heat transfer coeeficient with insulator
 U_tot = u_wood*0.25+U_ins*0.75 
 print("overall heat transfer coffient    "+str(U_tot)+ "   W/m^2/C")
 R_tot = 1/U_tot
