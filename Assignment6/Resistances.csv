@@ -1,0 +1,8 @@
+﻿;Material;type;lenght;Rstd;lenght_std;Rvalue
+Routside;outside;conv;none;;;
+Rwood_bevel_lapped;Wood_bevel_lapped;cond;13;;;
+R13mm_fiberboard;13mm_fiberboard;cond;13;;;
+Rwood_stud;Wood_stud;cond;90;;;
+R13mm_gypsum;13mm_gypsum;cond;13;;;
+Rglass_fiber_ins;Glass_fiber_ins;cond;90;;;
+Rinside;Inside_air;conv;none;;;
