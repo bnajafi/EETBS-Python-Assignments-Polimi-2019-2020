@@ -21,39 +21,50 @@ resistance_DF = pd.DataFrame(MaterialData,
 index=["WoodStud","GlassFiber","Gypsum","WoodFiber","Wood Bevel", "Inside", "Outside"],
 columns =["Resistance","Thick std","Type","Thick","R value"])
 
-#print(resistance_DF) #Check if table is correct
-
-resistance_DF.loc[resistance_DF.loc[:,"Type"] == "cond","R value"] = resistance_DF.loc[:,"Resistance"]*(resistance_DF.loc[:,"Thick"]/resistance_DF.loc[:,"Thick std"])
-resistance_DF.loc[resistance_DF.loc[:,"Type"] == "conv","R value"] = resistance_DF.loc[:,"Resistance"]
-print(resistance_DF)
-
 import os
 os.chdir(r"C:\Users\Class2018\OneDrive - Politecnico di Milano\Master Class Materials\Semester 3\Building Systems")
 os.getcwd()
 
 resistance_DF.to_excel("Resistance_Data.xlsx")
 
-Rtot1 = resistance_DF["R value"].sum () - resistance_DF.loc["GlassFiber","R value"]
-Rtot2 = resistance_DF["R value"].sum () - resistance_DF.loc["WoodStud","R value"]
-print(Rtot1,Rtot2) #Check if Values is exist
+FileLocation = r"C:\Users\Class2018\OneDrive - Politecnico di Milano\Master Class Materials\Semester 3\Building Systems"
+FileName = "Resistance_Data.xlsx"
+path_file = os.path.join(FileLocation,FileName)
+print(path_file)
 
-Uins = 1/Rtot2
-Uwood = 1/Rtot1
+Data_original = pd.read_csv(path_file, sep = ";", index_col = 0, header = 0)
+#print(Data_original)
 
-print(Uwood,Uins) # Check if values are the same
+def Assignment_calc(x):
+    resistance_DF.loc[resistance_DF.loc[:,"Type"] == "cond","R value"] = resistance_DF.loc[:,"Resistance"]*(resistance_DF.loc[:,"Thick"]/resistance_DF.loc[:,"Thick std"])
+    resistance_DF.loc[resistance_DF.loc[:,"Type"] == "conv","R value"] = resistance_DF.loc[:,"Resistance"]
+    print(resistance_DF)
 
-Utot = .25*Uwood +.75*Uins
+    Rtot1 = resistance_DF["R value"].sum () - resistance_DF.loc["GlassFiber","R value"]
+    Rtot2 = resistance_DF["R value"].sum () - resistance_DF.loc["WoodStud","R value"]
+    print(Rtot1,Rtot2) #Check if Values is exist
 
-print(Utot) #Final check of values
+    Uins = 1/Rtot2
+    Uwood = 1/Rtot1
 
-Rwall = 1/Utot
+    print(Uwood,Uins) # Check if values are the same
 
-Atot = .8*50*2.5
+    Utot = .25*Uwood +.75*Uins
 
-Tin = 22
+    print(Utot) #Final check of values
 
-Tout = -2
+    Rwall = 1/Utot
 
-Qtot = Utot*Atot*(Tin-Tout)
+    Atot = .8*50*2.5
 
-print("Here is the total heat flux", Qtot, ".")
+    Tin = 22
+
+    Tout = -2
+
+    Qtot = Utot*Atot*(Tin-Tout)
+
+    print("Here is the total heat flux", Qtot, ".")
+    
+    return Qtot
+
+resistance_DF.loc[:,:].apply(Assignment_calc)

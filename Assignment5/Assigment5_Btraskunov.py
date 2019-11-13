@@ -10,7 +10,7 @@ Res2 = 0
 
 res_names = np.array(["WoodStud", "GlassFiber", "Gypsum", "WoodFiber", "WoodBevel", "Inside", "Outside"])
 
-madeOf = np.array(["case1", "case2", "case12", "case12", "Both", "Both"])
+madeOf = np.array(["case1", "case2", "case12", "case12","case12", "case12", "case12"])
 
 list_type = ["cond", "cond", "cond", "cond", "cond", "conv", "conv"]
 res_type = np.array(list_type)
@@ -22,7 +22,13 @@ Restot1[(res_type == "conv")] = res_R[(res_type == "conv")]
 
 #print(Restot1)
 
-Restot1[(madeOf == "case1") | (madeOf == "case12") & (res_type == "cond")] = res_R[(madeOf == "case1") | (madeOf == "case12") & (res_type == "cond")]*res_t[(madeOf == "case1") | (madeOf == "case12") & (res_type == "cond")]/res_tstd[(madeOf == "case1") | (madeOf == "case12") & (res_type == "cond")]
+Restot1[(madeOf == "case1") | (madeOf == "case12") & (res_type == "cond")] 
+
+Restot1[(madeOf == "case1") | (madeOf == "case12") & (res_type == "cond")] 
+
+res_R[(madeOf == "case1") | (madeOf == "case12") & (res_type == "cond")]*res_t[(madeOf == "case1") | 
+    (madeOf == "case12") & (res_type == "cond")]/res_tstd[(madeOf == "case1") | 
+        (madeOf == "case12") & (res_type == "cond")]
  
 Restot2[(res_type == "conv")] = res_R[(res_type == "conv")]
 
