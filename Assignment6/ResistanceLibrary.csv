@@ -1,0 +1,8 @@
+﻿ResistanceMaterial;Material;Type;Thickness;Rstandard;Tstandard;Rnew
+Routside;OutsideSurface;Conv;0;;;
+Rwoodbevel;WoodBevelLapped;Cond;13;;;
+Rfiberboard;Fiberboard;Cond;13;;;
+Rglassfiberins;GlassFiberInsulation;Cond;90;;;
+Rwoodstuds;WoodStuds;Cond;90;;;
+Rgypsum;Gypsum;Cond;13;;;
+Rinside;InsideSurface;Conv;0;;;
