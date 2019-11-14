@@ -1,0 +1,8 @@
+Materials;Std_Thickness;Std_R_value
+inside;0;0,12
+gypsum;13;0,079
+fiber_glass;25;0,7
+wood_stud;90;0,63
+wood_fiberboard;13;0,23
+wood_bavel;13;0,14
+outside;0;0,03
