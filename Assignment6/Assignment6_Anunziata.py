@@ -25,7 +25,7 @@ Resistances = pd.read_csv(path_Resistances, sep=";" , index_col=0 , header=0)
 
 Resistances["Rstd"]=Resistances.loc[:,"Material"].apply(Material_Rstd_reader)
 Resistances["length_std"]=Resistances.loc[:,"Material"].apply(Material_STDlength_reader)
-#unhashable type se metto due punti?? Resistances[:,"Rstd"]
+
 
 Resistances.loc[Resistances["type"]=="cond","Rvalue"] =Resistances.loc[Resistances["type"]=="cond","Rstd"] * ((Resistances.loc[Resistances["type"]=="cond","length"]).astype(float))/Resistances.loc[Resistances["type"]=="cond","length_std"]
 Resistances.loc[Resistances["type"]=="conv","Rvalue"]=Resistances.loc[Resistances["type"]=="conv","Rstd"]
