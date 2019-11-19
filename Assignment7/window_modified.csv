@@ -1,0 +1,5 @@
+Name,Direction,width,Height,Area,Window_ID,Frame_type,Frame_material,U,SHGC,HF,Q heating,SLF,Doh,Xoh,Fshd,IntShading_ID,IntShading_closeness,IAC_cl,IAC,Tx,Ed,ED,PXI,FFs,C_value,CF,Qcooling
+east,E,8,1.8,14.4,5c,Fixed,Wood,2.84,0.54,71.0,1022.4,1.0,0.9,0.3,0.333333333333,DrapesLightOpen,0.4,0.73,0.892,1.0,188,559,560.666666667,0.31,7.91224,91.6314352,1319.49266688
+west,W,8,1.8,14.4,5c,Fixed,Wood,2.84,0.54,71.0,1022.4,1.0,0.9,0.3,0.333333333333,DrapesLightOpen,0.4,0.73,0.892,1.0,188,559,560.666666667,0.56,7.91224,159.1469152,2291.71557888
+south-Fixed,S,2,1.8,3.6,5c,Fixed,Wood,2.84,0.54,71.0,255.6,2.7,0.9,0.3,1.0,DrapesLightOpen,0.4,0.73,0.892,1.0,209,348,209.0,0.47,7.91224,55.2276664,198.81959904
+south-Operable,S,2,1.8,3.6,5c,Operable,Wood,2.87,0.46,71.75,258.3,2.7,0.9,0.3,1.0,DrapesLightOpen,0.4,0.73,0.892,0.64,209,348,133.76,0.47,7.99582,33.791489504,121.649362214
