@@ -1,0 +1,5 @@
+Name;Unnamed: 0;Direction;width;Height;Area;Window_ID;Frame_type;Frame_material;U;SHGC;HF;Q heating;SLF;Doh;Xoh;Fshd;IntShading_ID;IntShading_closeness;IAC_cl;IAC;Tx;Ed;ED;PXI;FFs;C_value;CF;Qcooling;Latitude;BuildingType
+east;0;E;8;1.8;14.4;5c;Fixed;Wood;0;0;0;0;1.0;0.9;0.3;0.333333333333;DrapesLightOpen;0.4;0.73;0.892;1.0;188;559;560.666666667;0.31;2.426;0;0;45;SingleFamilyDetached
+west;1;W;8;1.8;14.4;5c;Fixed;Wood;0;0;0;0;1.0;0.9;0.3;0.333333333333;DrapesLightOpen;0.4;0.73;0.892;1.0;188;559;560.666666667;0.56;2.426;0;0;45;SingleFamilyDetached
+south-Fixed;2;S;2;1.8;3.6;5c;Fixed;Wood;0;0;0;0;2.7;0.9;0.3;1.0;DrapesLightOpen;0.4;0.73;0.892;1.0;209;348;209.0;0.47;2.426;0;0;45;SingleFamilyDetached
+south-Operable;3;S;2;1.8;3.6;5c;Operable;Wood;0;0;0;0;2.7;0.9;0.3;1.0;DrapesLightOpen;0.4;0.73;0.892;0.64;209;348;133.76;0.47;2.426;0;0;45;SingleFamilyDetached

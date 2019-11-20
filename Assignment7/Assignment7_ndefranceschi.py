@@ -4,9 +4,9 @@ import pandas as pd
 
 Folder_WhereIwas= os.getcwd()
 FolderWhereTheTablesAre = r"C:\Users\Nicoletta\python4ScientificComputing_Numpy_Pandas_MATPLotLIB-master\A 2019-2020\Nuova cartella"
-FileNameWindows = "windows.csv"
+FileNameWindows = "windowsnew.csv"
 pathFileWindows = os.path.join(FolderWhereTheTablesAre,FileNameWindows)
-window_DF = pd.read_csv(pathFileWindows,sep=";")
+window_DF = pd.read_csv(pathFileWindows,sep=";",index_col=0,header=0)
 print(window_DF)
 
 window_DF['width']
@@ -60,6 +60,7 @@ BeamIrradiance_DF = pd.read_csv(pathFile_BeamIrradiance, sep=";", index_col = 1,
 
 
 window_DF.loc[:,"Latitude"] = "45"
+print window_DF.loc[:,"Latitude"] 
 window_DF.loc[:,"Direction"]
 
 def BeamIrrReader1(beamirr):
@@ -117,7 +118,16 @@ def SLFReader1(slf):
 window_DF.apply(SLFReader1,axis=1)
 window_DF.loc[:,"SLF"]=window_DF.apply(SLFReader1,axis=1)
 print (window_DF.loc[:,"SLF"])
-window_DF.loc[:,"Fshd"] = (window_DF.loc[:,"SLF"]*window_DF.loc[:,"Doh"]-window_DF.loc[:,"Xoh"])/(window_DF.loc[:,"Height"]) 
+def FshdReader(fshd):
+    SLF = fshd["SLF"]
+    Doh = fshd["Doh"]
+    Xoh = fshd["Xoh"]
+    Height = fshd["Height"]
+    Fshd1 = (SLF*Doh-Xoh)/Height
+    Fshd = min(1,max(0,Fshd1))
+    return Fshd
+
+window_DF.loc[:,"Fshd"] = window_DF.apply(FshdReader,axis=1)
 print(window_DF.loc[:,"Fshd"])
 
 #Computation of PXI
@@ -125,10 +135,10 @@ print(window_DF.loc[:,"Fshd"])
 window_DF.loc[:,"PXI"]=window_DF.loc[:,"Tx"]*(window_DF.loc[:,"Ed"]+(1-window_DF.loc[:,"Fshd"])*window_DF.loc[:,"ED"])
 window_DF.loc[:,"PXI"]
 
-#Computation of CValue
+#Computation of CValue for a location in Piacenza
 #CValue=deltaT-0.46DR
-location_deltaT_cooling=7.8
-location_DR_cooling=10.9
+location_deltaT_cooling=7.9
+location_DR_cooling=11.9
 
 window_DF.loc[:,"C_value"]= location_deltaT_cooling - 0.46*location_DR_cooling
 print window_DF.loc[:,"C_value"]
@@ -136,3 +146,6 @@ print window_DF.loc[:,"C_value"]
 FileNameWindowsModified = "Assignment7_NDefranceschi.csv"
 PathFileWindowsModified  = os.path.join(FolderWhereTheTablesAre,FileNameWindowsModified)
 window_DF.to_csv(PathFileWindowsModified,sep=";")
+FileNameWindowsModified_excel= "Assignment7_NDefranceschi.xlsx"
+PathFileWindowsModified_excel = os.path.join(FolderWhereTheTablesAre,FileNameWindowsModified_excel)
+window_DF.to_excel(PathFileWindowsModified_excel)
