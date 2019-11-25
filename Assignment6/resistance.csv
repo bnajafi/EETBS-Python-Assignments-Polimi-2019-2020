@@ -1,0 +1,8 @@
+Resistances;Materials;Std_Thickness;Std_R_value;Thickness;R_value
+R_inside;inside;;;0;
+R_gypsum;gypsum;;;13;
+R_ins;fiber_glass;;;90;
+R_stud;wood_stud;;;90;
+R_woodfiber;wood_fiberboard;;;13;
+R_bavel;wood_bavel;;;13;
+R_outside;outside;;;0;
