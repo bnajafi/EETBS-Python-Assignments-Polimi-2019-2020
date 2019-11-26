@@ -21,11 +21,7 @@ SHGCopr = 0.46
 SHGCfix = 0.54
 
 #Values for U/SHGC found in RLF method table. House also assumed to be single.
-'''
-name_modified_window ="window_modified.csv"
-path_modified_window = os.path.join(Folder_whereThoseTablesAre,name_modified_window)
-window_DF.to_csv(path_modified_window, sep=";")
-'''
+
 def IAC_CL_finder(row):
     windowID = row["Window_ID"]
     IntShadingType = row["IntShading_ID"]
