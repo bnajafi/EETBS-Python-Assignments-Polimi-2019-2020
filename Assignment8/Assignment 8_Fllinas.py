@@ -28,29 +28,30 @@ oldIndex_Irradiance = DF_IrradianceSource.index
 NewParsedIndex_Irradiance = pd.to_datetime (oldIndex_Irradiance)
 DF_IrradianceSource.index = NewParsedIndex_Irradiance
 
-fig1 = DF_consumption_FirstWeekOfJuly.plot()
-plt.xlabel("Time")
-plt.ylabel("AC power [W]")
-plt.grid()
-plt.show()
-plt.legend(loc= "upper left") 
 
 DF_temperature = DF_weather[["temperature"]]
 DF_temperature.loc[: , "temperature"]=DF_temperature.loc[: , "temperature"].shift(-6)
 DF_temperature_FirstWeekOfJuly = DF_temperature.loc["2014-07-01 00:00:00 ":"2014-07-08 00:00:00 "]
-fig2 = DF_temperature_FirstWeekOfJuly.plot()
-plt.xlabel("Time")
-plt.ylabel("Temperature")
-plt.grid()
-plt.show()
 
 DF_Irradiance = DF_IrradianceSource[["gen"]]
 DF_Irradiance.loc[DF_Irradiance.loc[: , "gen"]<0 ,:]=0
 DF_Irradiance_FirstWeekOfJuly = DF_Irradiance.loc["2014-07-01 00:00:00 ":"2014-07-08 00:00:00 "]
-fig3 = DF_Irradiance_FirstWeekOfJuly.plot()
-plt.xlabel("Time")
-plt.grid()
-plt.show()
+
+
+Xaxis=DF_Irradiance_FirstWeekOfJuly.index
+Yaxis1=DF_consumption_FirstWeekOfJuly.loc[:,"air conditioner_5545"]
+Yaxis2=DF_temperature_FirstWeekOfJuly.loc[:,"temperature"]
+Yaxis3=DF_Irradiance_FirstWeekOfJuly.loc[:,"gen"]
+
+fig,ax = plt.subplots(3)
+ax[0].plot(Xaxis,Yaxis1)
+ax[1].plot(Xaxis,Yaxis2)
+ax[2].plot(Xaxis,Yaxis3)
+
+ax[0].set_ylabel('AC Consumption [W]')
+ax[1].set_ylabel('Temperature')
+ax[2].set_ylabel('Irradiance')
+
 
 DF_joined_FirstWeekOfJuly = DF_consumption_FirstWeekOfJuly.join ([DF_temperature_FirstWeekOfJuly , DF_Irradiance_FirstWeekOfJuly])
 MaxValues_FirstWeekOfJuly = DF_joined_FirstWeekOfJuly[['air conditioner_5545','temperature','gen']].max()
@@ -67,3 +68,4 @@ fig4 = DF_Normalized_FirstWeekOfJuly.plot()
 plt.xlabel("Time")
 plt.grid()
 plt.show()
+
