@@ -1,0 +1,8 @@
+Material;Length;RvalUnit;Type
+gypsum;0.013;0.079;cond
+woodfiber;0.013;0.23;cond
+woodbevel;0.013;0.14;cond
+woodstud;0.09;0.63;cond
+glassfiber;0.025;0.7;cond
+inside;0;0.12;conv
+outside;0;0.03;conv
