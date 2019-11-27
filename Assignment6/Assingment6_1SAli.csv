@@ -1,0 +1,8 @@
+,Resistance_type,given_L,stand_L,RValue_std,Rvalue
+R_in_list,conv,,,0.12,0.12
+R_out_list,conv,,,0.03,0.03
+R_bevel_list,cond,0.013,0.013,0.14,0.14
+R_fiber_list,cond,0.013,0.013,0.23,0.23
+R_glass_list,cond,0.09,0.025,0.7,2.52
+R_stud_list,cond,0.09,0.09,0.63,0.63
+R_gypsum_list,cond,0.013,0.013,0.079,0.079
